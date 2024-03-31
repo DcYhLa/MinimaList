@@ -1,0 +1,288 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ECEFF1;
+    width: 350px;
+    transition: background-color 0.5s ease;
+}
+
+h1 {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 5px;
+    background-color: #ECEFF1;
+    width: 350px;
+    font-size: 18px;
+    font-weight: lighter;
+    transition: background-color 0.5s ease;
+}
+
+h2 {
+    font-size: 13px;
+    border-bottom: 2px solid #BDBDBD;
+    transition: background-color 0.5s ease;
+}
+
+#container{
+    background-color: #ECEFF1;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    transition: background-color 0.5s ease;
+}
+
+#new-task{
+    padding: 10px;
+    width: calc(100% - 20px);
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+#add-task{
+    padding: 10px;
+    width: 100%;
+    background-color: #E0E0E0;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 13px;
+    transition: opacity 0.3s ease;
+}
+
+#task-list{
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+#task-list li{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #E0E0E0;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#task-list li span{
+    flex-grow: 1;
+    margin-left: 10px;
+    word-break: break-word;
+}
+
+input[type='checkbox']{
+    cursor: pointer;
+}
+
+button:not(#add-task){
+    margin-left: 5px;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+button:hover{
+    opacity: 0.8;
+}
+
+button {
+    background-color: #BDBDBD;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    background-color: #eee;
+}
+
+.dark-mode body {
+    background-color: #333333;
+}
+
+.dark-mode textarea{
+    background-color: #333333;
+    color: #fff;
+}
+
+.dark-mode #container {
+    background-color: #333333;
+}
+
+.dark-mode #task-list li,
+.dark-mode #task-list li span {
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.dark-mode #name{
+    background-color: #000000;
+    color: #fff;
+}
+
+.dark-mode #new-task{
+    background-color: #000000;
+    color: #fff;
+}
+
+.dark-mode #add-task{
+    background-color: #1e1e1e;
+    color: #fff;
+}
+
+.dark-mode #sort-tasks-button{
+    background-color: #0f0f0f;
+    color: #fff;
+}
+
+.dark-mode button {
+    background-color: #0f0f0f;
+    color: #fff;
+}
+
+.dark-mode h5,
+.dark-mode h1 {
+    background-color: #333333;
+    color: #fff;
+}
+
+.dark-mode h2{
+    background-color: #333333;
+    color: #fff;
+    border-bottom: 2px solid #454545;
+}
+
+.dark-mode P{
+    color: #fff;
+}
+
+.dark-mode .tab_box {
+    background-color: #333333;
+}
+
+.dark-mode .tab_box .tab_btn.active {
+    color: #bbbbbb;
+}
+
+.dark-mode .tab_box{
+    border-bottom: 5px solid #454545;
+}
+
+.dark-mode .line{
+    background-color: #1d1d1d;
+}
+
+.dark-mode .count {
+    background-color: #0f0f0f;
+}
+
+.dark-mode .count p{
+    color: #fff;
+}
+
+.dark-mode .count h5{
+    color: #fff;
+}
+
+.tab_box{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    border-bottom: 5px solid #E0E0E0;
+    position: relative;
+    transition: background-color 0.5s ease;
+}
+
+.tab_box .tab_btn{
+    font-size: 18px;
+    font-weight: 600;
+    background: none;
+    border: none;
+    padding: 18px;
+}
+
+.tab_box .tab_btn.active{
+    color: #565346;
+}
+
+.line{
+    position: absolute;
+    top: 33px;
+    left: 21px;
+    width: 49px;
+    height: 6px;
+    background-color: #BDBDBD;
+    border-radius: 10px;
+    transition: background-color 0.5s ease, all 0.5s ease;
+}
+
+.content_box .content { 
+    display: none;
+    animation: moving 0.5s ease;
+}
+@keyframes moving{
+    from{transform: translateX(10px);opacity: 0;}
+    to{transform: translateX(0px);opacity: 1;}
+}
+
+.content_box .content.active {
+    display: block;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+textarea {
+    width: 100%;
+    font-size: 12px;
+    line-height: 28px;
+    color: #0e101a;
+    background-color: #ECEFF1;
+    border: 0px;
+    resize: none;
+}
+
+.count {
+    background-color: #BDBDBD;
+    height: 10%;
+    width: 80%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.count p {
+    color: #000000;
+}
+
+p{
+    color: #000000;
+}
+
+.count h5 {
+    color: #000000;
+    font-size: 20px;
+}

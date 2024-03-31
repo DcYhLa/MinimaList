@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Chrome Todo Extension</title>
+</head>
+
+<body>
+
+    <div class = "tab_box">
+        <button class="tab_btn active">Tasks</button>
+        <button class="tab_btn">Word Counter</button>
+        <button class="tab_btn"> Setting & Info </button>
+        <div class="line"></div>
+    </div>
+
+    <div id="container">
+        <div class = "content_box">
+            <div class = "content active">
+              <h1 id = "greeting"></h1>
+                <input type="text" id="new-task" placeholder="Add a new task...">
+                <button id="add-task">Add Task</button>
+                <ul id="task-list"></ul>
+            </div>
+
+            <div class = "content">
+                <h1>Word Counter</h1>
+                <div class="wrapper">
+                    <div class="container">
+                      <textarea
+                        id="input-textarea"
+                        rows="12"
+                        placeholder="Start Typing here..."
+                      ></textarea>
+                    </div>
+                    <div class="count">
+                      <div>
+                        <h5 id="word-count">0</h5>
+                        <p>Words</p>
+                      </div>
+                      <div>
+                        <h5 id="charac-count">0</h5>
+                        <p>Characters</p>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+            <div class = "content">
+                <h1>Settings & Info</h1>
+                <h2>Theme:</h2>
+                <button id="dark-mode-toggle">Dark Mode</button>
+                <h2>Sort</h2>
+                <button id="sort-tasks-button">Sort Tasks From A-Z</button>
+                <h5>(Note, You Will Have To Do This Manually Every Time You Add A Task. Or You Can Open And Close The Extension Again)</h5>
+                <h2>Donate</h2>
+                <a href="https://www.youtube.com/@AsmrProg" target="_blank">
+                  <button>Asmr Prog's Youtube Channel</button>
+                </a>                
+                <h5>The Task System Was Not Created By Me, But By This Amazing Person Here, Sub To Him To Keep Him Going!</h5>
+              </div>
+        </div>
+    </div>
+    
+    <script src="moment.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
