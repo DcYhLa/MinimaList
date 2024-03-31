@@ -26,3 +26,7 @@ https://chromewebstore.google.com/detail/minimalist/cdbieddamphflbboonfcogbjialj
 <h2>👮 Security:</h2>
 
 <p>All the info of this extension is stored locally so you have no need to worry about people stealing information about you from this extension. </p>
+
+<h2>🛡️ License:</h2>
+
+This project is licensed under the MIT License. It allows individuals to use, modify, and distribute the software freely, as long as the copyright and permission notices are included. 
