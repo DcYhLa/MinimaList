@@ -24,6 +24,11 @@ h2 {
     transition: background-color 0.5s ease;
 }
 
+h3 {
+    font-size: 13px;
+    transition: background-color 0.5s ease;
+}
+
 #container{
     background-color: #ECEFF1;
     padding-top: 10px;
@@ -37,7 +42,7 @@ h2 {
     padding: 10px;
     width: calc(100% - 20px);
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 0px solid #dddddd00;
     border-radius: 4px;
     outline: none;
 }
@@ -77,8 +82,24 @@ h2 {
     word-break: break-word;
 }
 
-input[type='checkbox']{
-    cursor: pointer;
+.note-item {
+    background-color: #E0E0E0;
+    border-radius: 5px;
+    padding: 5px;
+    word-break: break-word;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.notes-form{
+    background-color: #E0E0E0;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+#note-title, #note-description{
+    background-color: #E0E0E0;
 }
 
 button:not(#add-task){
@@ -102,14 +123,140 @@ button {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
+#mode-dropdown {
+    appearance: none;
+    border: 0px solid #cccccc00;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    color: #333;
+    cursor: pointer;
+    background-color: #BDBDBD;
+}
+
+#mode-dropdown:focus{
+    outline: none;
+}
+
+option {
+    padding: 10px 16px;
+    background-color: #fff;
+    color: #333333;
+}
 button:focus {
     outline: none;
 }
 
-button:hover {
-    background-color: #eee;
+input{
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    background-color: #ECEFF1;
+}
+
+input:focus{
+    outline: none;
+}
+
+.tab_box{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 10px;
+    border-bottom: 5px solid #E0E0E0;
+    position: relative;
+    transition: background-color 0.5s ease;
+}
+
+.tab_box .tab_btn{
+    font-size: 18px;
+    font-weight: 600;
+    background: none;
+    border: none;
+    padding: 18px;
+}
+
+.tab_box .tab_btn.active{
+    color: #565346;
+}
+
+.line{
+    position: absolute;
+    top: 33px;
+    left: 10px;
+    width: 49px;
+    height: 6px;
+    background-color: #BDBDBD;
+    border-radius: 10px;
+    transition: background-color 0.5s ease, all 0.5s ease;
+}
+
+.content_box .content { 
+    display: none;
+    animation: moving 0.5s ease;
+}
+@keyframes moving{
+    from{transform: translateX(30px);opacity: 0;}
+    to{transform: translateX(0px);opacity: 1;}
+}
+
+.content_box .content.active {
+    display: block;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+}
+
+textarea {
+    width: 100%;
+    font-size: 12px;
+    line-height: 28px;
+    color: #0e101a;
+    background-color: #ECEFF1;
+    border: 0px;
+    resize: none;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+.count {
+    background-color: #BDBDBD;
+    height: 10%;
+    width: 80%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    border-radius: 5px;
+}
+.count p {
+    color: #000000;
+}
+
+p{
+    color: #000000;
+}
+
+.count h5 {
+    color: #000000;
+    font-size: 20px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+input[type="text"],
+textarea {
+  font-family: 'Roboto Mono', monospace;
 }
 
 .dark-mode body {
@@ -131,13 +278,8 @@ button:hover {
     color: #fff;
 }
 
-.dark-mode #name{
-    background-color: #000000;
-    color: #fff;
-}
-
 .dark-mode #new-task{
-    background-color: #000000;
+    background-color: #333333;
     color: #fff;
 }
 
@@ -152,6 +294,11 @@ button:hover {
 }
 
 .dark-mode button {
+    background-color: #0f0f0f;
+    color: #fff;
+}
+
+.dark-mode #mode-dropdown {
     background-color: #0f0f0f;
     color: #fff;
 }
@@ -200,89 +347,580 @@ button:hover {
     color: #fff;
 }
 
-.tab_box{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 10px;
-    border-bottom: 5px solid #E0E0E0;
-    position: relative;
-    transition: background-color 0.5s ease;
+.dark-mode #note-title{
+    color: #fff;
 }
 
-.tab_box .tab_btn{
-    font-size: 18px;
-    font-weight: 600;
-    background: none;
-    border: none;
-    padding: 18px;
+.dark-mode .notes-form{
+    background-color: #454545;
 }
 
-.tab_box .tab_btn.active{
-    color: #565346;
+.dark-mode #note-title{
+    background-color: #454545;
 }
 
-.line{
-    position: absolute;
-    top: 33px;
-    left: 21px;
-    width: 49px;
-    height: 6px;
-    background-color: #BDBDBD;
-    border-radius: 10px;
-    transition: background-color 0.5s ease, all 0.5s ease;
+.dark-mode #note-description{
+    background-color: #454545;
+}
+.dark-mode .note-item{
+    background-color: #454545;
 }
 
-.content_box .content { 
-    display: none;
-    animation: moving 0.5s ease;
-}
-@keyframes moving{
-    from{transform: translateX(10px);opacity: 0;}
-    to{transform: translateX(0px);opacity: 1;}
+.dark-mode h3{
+    color: #fff;
 }
 
-.content_box .content.active {
-    display: block;
+.mango-mode body {
+    background-color: #333333;
 }
 
-::-webkit-scrollbar{
-    width: 0px;
+.mango-mode textarea{
+    background-color: #333333;
+    color: #fff;
 }
 
-textarea {
-    width: 100%;
-    font-size: 12px;
-    line-height: 28px;
-    color: #0e101a;
-    background-color: #ECEFF1;
-    border: 0px;
-    resize: none;
+.mango-mode #container {
+    background-color: #333333;
 }
 
-.count {
-    background-color: #BDBDBD;
-    height: 10%;
-    width: 80%;
-    position: relative;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    display: flex;
-    justify-content: space-around;
-    text-align: center;
-    border-radius: 5px;
+.mango-mode #task-list li,
+.mango-mode #task-list li span {
+    background-color: #fba407;
+    color: #fff;
 }
 
-.count p {
-    color: #000000;
+.mango-mode #new-task{
+    background-color: #333333;
+    color: #fff;
 }
 
-p{
-    color: #000000;
+.mango-mode #add-task{
+    background-color: #fba407;
+    color: #fff;
 }
 
-.count h5 {
-    color: #000000;
-    font-size: 20px;
+.mango-mode #sort-tasks-button{
+    background-color: #fba407;
+    color: #fff;
+}
+
+.mango-mode button {
+    background-color: #fba407;
+    color: #fff;
+}
+
+.mango-mode #mode-dropdown {
+    background-color: #fba407;
+    color: #fff;
+}
+
+.mango-mode h5,
+.mango-mode h1 {
+    background-color: #333333;
+    color: #fff;
+}
+
+.mango-mode h2{
+    background-color: #333333;
+    color: #fff;
+    border-bottom: 2px solid #fba407;
+}
+
+.mango-mode P{
+    color: #fff;
+}
+
+.mango-mode .tab_box {
+    background-color: #333333;
+}
+
+.mango-mode .tab_box .tab_btn.active {
+    color: #bbbbbb;
+}
+
+.mango-mode .tab_box{
+    border-bottom: 5px solid #fba407;
+}
+
+.mango-mode .line{
+    background-color: #e29300;
+}
+
+.mango-mode .count {
+    background-color: #fba407;
+}
+
+.mango-mode .count p{
+    color: #fff;
+}
+
+.mango-mode .count h5{
+    color: #fff;
+}
+
+.mango-mode #note-title{
+    color: #fff;
+}
+
+.mango-mode .notes-form{
+    background-color: #333333;
+}
+
+.mango-mode #note-title{
+    background-color: #333333;
+}
+
+.mango-mode #note-description{
+    background-color: #333333;
+}
+.mango-mode .note-item{
+    background-color: #eb9a04;
+}
+
+.mango-mode h3{
+    color: #fff;
+}
+
+.midnight-mode body {
+    background-color: #16181d;
+}
+
+.midnight-mode textarea{
+    background-color: #16181d;
+    color: #fff;
+}
+
+.midnight-mode #container {
+    background-color: #16181d;
+}
+
+.midnight-mode #task-list li,
+.midnight-mode #task-list li span {
+    background-color: #2b303b;
+    color: #fff;
+}
+
+.midnight-mode #new-task{
+    background-color: #16181d;
+    color: #fff;
+}
+
+.midnight-mode #add-task{
+    background-color: #2b303b;
+    color: #fff;
+}
+
+.midnight-mode #sort-tasks-button{
+    background-color: #2b303b;
+    color: #fff;
+}
+
+.midnight-mode button {
+    background-color: #2b303b;
+    color: #fff;
+}
+
+.midnight-mode #mode-dropdown {
+    background-color: #2b303b;
+    color: #fff;
+}
+
+.midnight-mode h5,
+.midnight-mode h1 {
+    background-color: #16181d;
+    color: #fff;
+}
+
+.midnight-mode h2{
+    background-color: #16181d;
+    color: #fff;
+    border-bottom: 2px solid #2b303b;
+}
+
+.midnight-mode P{
+    color: #fff;
+}
+
+.midnight-mode .tab_box {
+    background-color: #16181d;
+}
+
+.midnight-mode .tab_box .tab_btn.active {
+    color: #bbbbbb;
+}
+
+.midnight-mode .tab_box{
+    border-bottom: 5px solid #2b303b;
+}
+
+.midnight-mode .line{
+    background-color: #2b303b;
+}
+
+.midnight-mode .count {
+    background-color: #2b303b;
+}
+
+.midnight-mode .count p{
+    color: #fff;
+}
+
+.midnight-mode .count h5{
+    color: #fff;
+}
+
+.midnight-mode #note-title{
+    color: #fff;
+}
+
+.midnight-mode .notes-form{
+    background-color: #16181d;
+}
+
+.midnight-mode #note-title{
+    background-color: #16181d;
+}
+
+.midnight-mode #note-description{
+    background-color: #16181d;
+}
+.midnight-mode .note-item{
+    background-color: #2b303b;
+}
+
+.midnight-mode h3{
+    color: #fff;
+}
+
+.sakura-mode body {
+    background-color: #5d3640;
+}
+
+.sakura-mode textarea{
+    background-color: #5d3640;
+    color: #fff;
+}
+
+.sakura-mode #container {
+    background-color: #5d3640;
+}
+
+.sakura-mode #task-list li,
+.sakura-mode #task-list li span {
+    background-color: #c05169;
+    color: #fff;
+}
+
+.sakura-mode #new-task{
+    background-color: #5d3640;
+    color: #fff;
+}
+
+.sakura-mode #add-task{
+    background-color: #c05169;
+    color: #fff;
+}
+
+.sakura-mode #sort-tasks-button{
+    background-color: #c05169;
+    color: #fff;
+}
+
+.sakura-mode button {
+    background-color: #c05169;
+    color: #fff;
+}
+
+.sakura-mode #mode-dropdown {
+    background-color: #c05169;
+    color: #fff;
+}
+
+.sakura-mode h5,
+.sakura-mode h1 {
+    background-color: #5d3640;
+    color: #fff;
+}
+
+.sakura-mode h2{
+    background-color: #5d3640;
+    color: #fff;
+    border-bottom: 2px solid #c05169;
+}
+
+.sakura-mode P{
+    color: #fff;
+}
+
+.sakura-mode .tab_box {
+    background-color: #5d3640;
+}
+
+.sakura-mode .tab_box .tab_btn.active {
+    color: #bbbbbb;
+}
+
+.sakura-mode .tab_box{
+    border-bottom: 5px solid #c05169;
+}
+
+.sakura-mode .line{
+    background-color: #c05169;
+}
+
+.sakura-mode .count {
+    background-color: #c05169;
+}
+
+.sakura-mode .count p{
+    color: #fff;
+}
+
+.sakura-mode .count h5{
+    color: #fff;
+}
+
+.sakura-mode #note-title{
+    color: #fff;
+}
+
+.sakura-mode .notes-form{
+    background-color: #5d3640;
+}
+
+.sakura-mode #note-title{
+    background-color: #5d3640;
+}
+
+.sakura-mode #note-description{
+    background-color: #5d3640;
+}
+.sakura-mode .note-item{
+    background-color: #c05169;
+}
+
+.sakura-mode h3{
+    color: #fff;
+}
+
+.dark-plus-mode body {
+    background-color: #333333;
+}
+
+.dark-plus-mode textarea{
+    background-color: #333333;
+    color: #fff;
+}
+
+.dark-plus-mode #container {
+    background-color: #333333;
+}
+
+.dark-plus-mode #task-list li,
+.dark-plus-mode #task-list li span {
+    background-color: #9900ff;
+    color: #fff;
+}
+
+.dark-plus-mode #new-task{
+    background-color: #333333;
+    color: #fff;
+}
+
+.dark-plus-mode #add-task{
+    background-color: #9900ff;
+    color: #fff;
+}
+
+.dark-plus-mode #sort-tasks-button{
+    background-color: #9900ff;
+    color: #fff;
+}
+
+.dark-plus-mode button {
+    background-color: #9900ff;
+    color: #fff;
+}
+
+.dark-plus-mode #mode-dropdown {
+    background-color: #9900ff;
+    color: #fff;
+}
+
+.dark-plus-mode h5,
+.dark-plus-mode h1 {
+    background-color: #333333;
+    color: #fff;
+}
+
+.dark-plus-mode h2{
+    background-color: #333333;
+    color: #fff;
+    border-bottom: 2px solid #9900ff;
+}
+
+.dark-plus-mode P{
+    color: #fff;
+}
+
+.dark-plus-mode .tab_box {
+    background-color: #333333;
+}
+
+.dark-plus-mode .tab_box .tab_btn.active {
+    color: #bbbbbb;
+}
+
+.dark-plus-mode .tab_box{
+    border-bottom: 5px solid #9900ff;
+}
+
+.dark-plus-mode .line{
+    background-color: #9900ff;
+}
+
+.dark-plus-mode .count {
+    background-color: #9900ff;
+}
+
+.dark-plus-mode .count p{
+    color: #fff;
+}
+
+.dark-plus-mode .count h5{
+    color: #fff;
+}
+
+.dark-plus-mode #note-title{
+    color: #fff;
+}
+
+.dark-plus-mode .notes-form{
+    background-color: #333333;
+}
+
+.dark-plus-mode #note-title{
+    background-color: #333333;
+}
+
+.dark-plus-mode #note-description{
+    background-color: #333333;
+}
+.dark-plus-mode .note-item{
+    background-color: #9900ff;
+}
+
+.dark-plus-mode h3{
+    color: #fff;
+}
+
+.neon-blue-mode body {
+    background-color: #000000;
+}
+
+.neon-blue-mode textarea{
+    background-color: #000000;
+    color: #fff;
+}
+
+.neon-blue-mode #container {
+    background-color: #000000;
+}
+
+.neon-blue-mode #task-list li,
+.neon-blue-mode #task-list li span {
+    background-color: #05d9ff;
+    color: #fff;
+}
+
+.neon-blue-mode #new-task{
+    background-color: #000000;
+    color: #fff;
+}
+
+.neon-blue-mode #add-task{
+    background-color: #05d9ff;
+    color: #fff;
+}
+
+.neon-blue-mode #sort-tasks-button{
+    background-color: #05d9ff;
+    color: #fff;
+}
+
+.neon-blue-mode button {
+    background-color: #05d9ff;
+    color: #fff;
+}
+
+.neon-blue-mode #mode-dropdown {
+    background-color: #05d9ff;
+    color: #fff;
+}
+
+.neon-blue-mode h5,
+.neon-blue-mode h1 {
+    background-color: #000000;
+    color: #fff;
+}
+
+.neon-blue-mode h2{
+    background-color: #000000;
+    color: #fff;
+    border-bottom: 2px solid #05d9ff;
+}
+
+.neon-blue-mode P{
+    color: #fff;
+}
+
+.neon-blue-mode .tab_box {
+    background-color: #000000;
+}
+
+.neon-blue-mode .tab_box .tab_btn.active {
+    color: #bbbbbb;
+}
+
+.neon-blue-mode .tab_box{
+    border-bottom: 5px solid #05d9ff;
+}
+
+.neon-blue-mode .line{
+    background-color: #05d9ff;
+}
+
+.neon-blue-mode .count {
+    background-color: #05d9ff;
+}
+
+.neon-blue-mode .count p{
+    color: #fff;
+}
+
+.neon-blue-mode .count h5{
+    color: #fff;
+}
+
+.neon-blue-mode #note-title{
+    color: #fff;
+}
+
+.neon-blue-mode .notes-form{
+    background-color: #000000;
+}
+
+.neon-blue-mode #note-title{
+    background-color: #000000;
+}
+
+.neon-blue-mode #note-description{
+    background-color: #000000;
+}
+.neon-blue-mode .note-item{
+    background-color: #05d9ff;
+}
+
+.neon-blue-mode h3{
+    color: #fff;
 }

@@ -1,17 +1,17 @@
 {
-   "action": {
-      "default_popup": "index.html"
-   },
-   "description": "A simple and clean to-do list extension! Coded by DcYhL. Task system by Asmr Prog",
-   "icons": {
-      "128": "icons/iconlight128.png",
-      "16": "icons/iconlight16.png",
-      "32": "icons/iconlight32.png"
-   },
-   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAky1zrxBtAhT4syumBadGjkgUyYYHv9WpT7B3LxzjDBdxEmSCmwb+psBPKnU0psla0xkL4ewbzSxfVtN8AEPvEWg6Z6rjh+tGRUpOKFY7Un/g/pDAv01O1nNHOosRXXdqBPNVBEMt6xEh1cQXXTSMzX2jUkgzqjlkHG39O7TD0s9d/GRLR/pA1HgGZpKj+o4rvTYUnM1Zl2aqlpEHn1//gFS8CK9ZcqhcXOx8CfCH9bVNnoa2L/1O1wS+/iKE/lTu/sUwrUF3dgwGhi3dkKNS2zdW11chc3rUZS8iShFU1mBIXLvDKb50phqpk+HC0K6qrdjkJOmrMvyssBZiY2yOtwIDAQAB",
-   "manifest_version": 3,
-   "name": "MinimaList",
-   "permissions": [ "storage" ],
-   "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1"
+    "manifest_version": 3,
+    "name": "MinimaList",
+    "description": "A simple and clean to-do list extension! Coded by DcYhL. Task system by Asmr Prog",
+    "version": "1",
+    "action": {
+        "default_popup": "index.html"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "icons": {
+        "16": "icons/iconlight16.png",
+        "32": "icons/iconlight32.png",
+        "128": "icons/iconlight128.png"
+    }
 }

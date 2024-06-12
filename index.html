@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
     <title>Chrome Todo Extension</title>
 </head>
 
@@ -13,6 +14,7 @@
     <div class = "tab_box">
         <button class="tab_btn active">Tasks</button>
         <button class="tab_btn">Word Counter</button>
+        <button class="tab_btn"> Notes </button>
         <button class="tab_btn"> Setting & Info </button>
         <div class="line"></div>
     </div>
@@ -31,6 +33,7 @@
                 <div class="wrapper">
                     <div class="container">
                       <textarea
+                        class="word-counter" 
                         id="input-textarea"
                         rows="12"
                         placeholder="Start Typing here..."
@@ -50,12 +53,32 @@
             </div>
 
             <div class = "content">
+              <h1>Notes</h1>
+              <div class="notes-wrapper">
+                  <div class="notes-form">
+                      <input type="text" id="note-title" placeholder="Note Title">
+                      <textarea id="note-description" rows="4" placeholder="Note Description"></textarea>
+                  </div>
+                  <button id="create-note">Create Note</button>
+                  <div class="notes-list">
+                      <!-- Notes will be listed here -->
+                  </div>
+              </div>
+            </div>
+
+            <div class = "content">
                 <h1>Settings & Info</h1>
                 <h2>Theme:</h2>
-                <button id="dark-mode-toggle">Dark Mode</button>
-                <h2>Sort</h2>
-                <button id="sort-tasks-button">Sort Tasks From A-Z</button>
-                <h5>(Note, You Will Have To Do This Manually Every Time You Add A Task. Or You Can Open And Close The Extension Again)</h5>
+                <select id="mode-dropdown">
+                  <option value="light-mode">Light</option>
+                  <option value="dark-mode">Dark</option>
+                  <option value="mango-mode">Mango</option>
+                  <option value="dark-plus-mode">Dark+</option>
+                  <option value="midnight-mode">Midnight</option>
+                  <option value="sakura-mode">Sakura</option>
+                  <option value="neon-blue-mode">Neon Blue</option>
+                </select>
+                <!--Make sort function later or else retarded @DcYhEl-->
                 <h2>Donate</h2>
                 <a href="https://www.youtube.com/@AsmrProg" target="_blank">
                   <button>Asmr Prog's Youtube Channel</button>

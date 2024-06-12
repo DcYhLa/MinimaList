@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function (){
   document.getElementById('add-task').addEventListener('click', addTaskFromInput);
   loadTasks();
-  loadMode();
   
   document.querySelectorAll('.tab').forEach(function (tab) {
     tab.addEventListener('click', function () {
@@ -80,32 +79,6 @@ function loadTasks() {
   })
 }
 
-let sortOrder = 'asc';
-
-function sortTasksAlphabetically() {
-  const tasks = [];
-  document.querySelectorAll('#task-list li').forEach(function (taskLi) {
-    const text = taskLi.querySelector('span').textContent
-    const isCompleted = taskLi.querySelector('input').checked
-    tasks.push({ text, isCompleted, element: taskLi })
-  })
-
-  tasks.sort((a, b) => {
-    if (sortOrder === 'asc') {
-      return a.text.localeCompare(b.text)
-    } else {
-      return b.text.localeCompare(a.text)
-    }
-  })
-
-  const taskList = document.getElementById('task-list')
-  taskList.innerHTML = ''
-  tasks.forEach(function (task) {
-    taskList.appendChild(task.element)
-  })
-
-  saveTasks()
-}
 
 function toggleTask(event) {
   const text = event.target.nextElementSibling
@@ -128,30 +101,25 @@ function editTask(event) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-  loadMode()
-  
-  const toggleButton = document.getElementById('dark-mode-toggle')
-  
-  toggleButton.addEventListener('click', function () {
-    const bodyElement = document.body
-    bodyElement.classList.toggle('dark-mode')
-    const mode = bodyElement.classList.contains('dark-mode')
-    saveMode(mode)
-  })
-})
+const modeDropdown = document.getElementById('mode-dropdown');
 
-function loadMode() {
-  const savedMode = localStorage.getItem('darkMode')
-  if (savedMode === 'true') {
-    document.body.classList.add('dark-mode')
-  } else {
-    document.body.classList.remove('dark-mode')
-  }
+const bodyElement = document.body;
+
+let savedMode = localStorage.getItem('mode');
+
+if (savedMode) {
+  bodyElement.classList.add(savedMode);
 }
 
-function saveMode(mode) {
-  localStorage.setItem('darkMode', mode)
+modeDropdown.addEventListener('change', () => {
+  bodyElement.classList.remove('light-mode', 'dark-mode', 'mango-mode', "midnight-mode", "sakura-mode", "dark-plus-mode", "neon-blue-mode");
+  const selectedMode = modeDropdown.value;
+  bodyElement.classList.add(selectedMode);
+  localStorage.setItem('mode', selectedMode);
+});
+
+if (savedMode) {
+  modeDropdown.value = Array.from(bodyElement.classList).includes(savedMode) ? savedMode : 'light-mode';
 }
 
 const tabs = document.querySelectorAll(".tab_btn")
@@ -189,4 +157,56 @@ function generateGreeting() {
   const greeting = `Good ${amOrPm}!`;
 
   document.getElementById("greeting").textContent = greeting;
+}
+
+const noteTitleInput = document.getElementById('note-title');
+const noteDescriptionInput = document.getElementById('note-description');
+const createNoteButton = document.getElementById('create-note');
+const notesList = document.querySelector('.notes-list');
+
+let notes = localStorage.getItem('notes')? JSON.parse(localStorage.getItem('notes')) : [];
+loadNotes();
+
+function createNote() {
+    if (noteTitleInput.value && noteDescriptionInput.value) {
+        const newNote = {
+            id: Date.now(),
+            title: noteTitleInput.value,
+            description: noteDescriptionInput.value
+        };
+        notes.push(newNote);
+        localStorage.setItem('notes', JSON.stringify(notes));
+        loadNotes();
+        clearInputs();
+    }
+}
+
+function loadNotes() {
+  notesList.innerHTML = notes.map(note => `
+      <div class="note-item">
+          <h3>${note.title}</h3>
+          <p>${note.description}</p>
+          <div>
+              <button class="delete-btn" data-id="${note.id}">Delete</button>
+          </div>
+      </div>
+  `).join('');
+}
+
+function clearInputs() {
+    noteTitleInput.value = '';
+    noteDescriptionInput.value = '';
+}
+
+createNoteButton.addEventListener('click', createNote);
+notesList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete-btn')) {
+        deleteNote(e.target.dataset.id);
+    }
+});
+
+function deleteNote(id) {
+    notes = notes.filter(note => note.id!== parseInt(id));
+    localStorage.setItem('notes', JSON.stringify(notes));
+    loadNotes();
 }
